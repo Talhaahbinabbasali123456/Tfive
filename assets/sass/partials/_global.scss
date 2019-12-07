@@ -1,0 +1,159 @@
+//=======================================================
+// -Global style start
+//=======================================================
+
+// Default style start
+
+html,
+body {
+  font-family: $font-default;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+
+  // Media Query max width Usage
+  @include mq("md", max) {
+    font-size: 14px;
+  }
+
+  // Media Query min max width Usage
+  @include mq-only("md", "xl") {
+    font-size: 15px;
+  }
+
+  // Media Query min width Usage
+  @include mq("xl", min) {
+    font-size: 16px;
+  }
+}
+
+// Make images easier to work with
+img {
+  max-width: 100%;
+  display: block;
+}
+
+// Remove list styles on ul, ol elements with a class attribute
+ul[class],
+ol[class] {
+  padding-left: 0;
+  list-style: none;
+}
+
+%headings {
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-top: 0;
+}
+
+@for $i from 1 through 6 {
+
+  h#{$i},
+  .h#{$i} {
+    @extend %headings;
+  }
+}
+
+.blur-filter {
+  filter: blur(2px);
+}
+
+.title {
+  color: gray;
+}
+
+.active-section {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.deactive-section {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.top-btn {
+  position: fixed;
+  bottom: 6%;
+  right: 3%;
+  z-index: 999;
+  transform: rotate(-90deg);
+  font-size: 20px;
+  color: white;
+  padding: 0 10px;
+  transition: 1s;
+  cursor: pointer;
+  filter: drop-shadow(2px 4px 6px black);
+  a {
+    color: gray;
+    text-decoration: none;
+    
+  }
+
+  &:hover {
+    &::after {
+      height: 100%;
+      border-top: 2px solid transparent;
+    }
+
+    &::before {
+      bottom: 9px;
+      left: 95%;
+      transform: rotate(-135deg);
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid gray;
+    border-top: 2px solid gray;
+    transition: 1s;
+
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid gray;
+    border-bottom: 2px solid gray;
+    transition: 1s;
+
+  }
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-button {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border: 0px outset #ffffff;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+  border: 0px solid #ffffff;
+  border-radius: 50px;
+}
+
+//=======================================================
+// -Global style  end
+//=======================================================
